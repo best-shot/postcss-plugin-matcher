@@ -1,0 +1,67 @@
+{
+  "name": "postcss-plugin-matcher",
+  "version": "0.1.0",
+  "description": "PostCSS plugin for limit plugins matching",
+  "license": "MIT",
+  "author": {
+    "name": "Eric Chen",
+    "email": "airkro@qq.com"
+  },
+  "keywords": [
+    "exclude",
+    "filter",
+    "glob",
+    "ignore",
+    "include",
+    "match",
+    "postcss",
+    "postcss-plugin",
+    "regex",
+    "wildcard"
+  ],
+  "homepage": "https://github.com/Airkro/postcss-plugin-matcher",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Airkro/postcss-plugin-matcher.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Airkro/postcss-plugin-matcher/issues"
+  },
+  "main": "index.cjs",
+  "files": [],
+  "scripts": {
+    "lint": "nice-move lint",
+    "prepare": "git config core.hooksPath .hooks"
+  },
+  "dependencies": {
+    "anymatch": "^3.1.2",
+    "slash": "^3.0.0"
+  },
+  "devDependencies": {
+    "@nice-move/cli": "^0.5.29",
+    "@nice-move/commitlint-config": "^0.2.0",
+    "@nice-move/eslint-config-base": "^0.5.60",
+    "@nice-move/prettier-config": "^0.4.14",
+    "commitlint": "^13.1.0",
+    "eslint": "^7.32.0",
+    "garou": "^0.1.40",
+    "prettier": "^2.3.2"
+  },
+  "peerDependencies": {
+    "postcss": "^8.3.6"
+  },
+  "engines": {
+    "node": "^12.22.0 || ^14.17.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "commitlint": {
+    "extends": "@nice-move/commitlint-config"
+  },
+  "eslintConfig": {
+    "extends": "@nice-move/eslint-config-base"
+  },
+  "prettier": "@nice-move/prettier-config"
+}
