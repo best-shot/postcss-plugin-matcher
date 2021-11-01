@@ -1,6 +1,6 @@
 {
   "name": "postcss-plugin-matcher",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "PostCSS plugin for limit plugins matching",
   "license": "MIT",
   "author": {
@@ -31,27 +31,27 @@
   "files": [],
   "scripts": {
     "lint": "nice-move lint",
-    "prepare": "git config core.hooksPath .hooks"
+    "prepare": "git config core.hooksPath .githooks"
   },
   "dependencies": {
     "anymatch": "^3.1.2",
     "slash": "^3.0.0"
   },
   "devDependencies": {
-    "@nice-move/cli": "^0.5.29",
-    "@nice-move/commitlint-config": "^0.2.0",
-    "@nice-move/eslint-config-base": "^0.5.60",
-    "@nice-move/prettier-config": "^0.4.14",
-    "commitlint": "^13.1.0",
+    "@nice-move/cli": "^0.5.32",
+    "@nice-move/commitlint-config": "^0.2.2",
+    "@nice-move/eslint-config-base": "^0.5.66",
+    "@nice-move/prettier-config": "^0.5.1",
+    "commitlint": "^13.2.1",
     "eslint": "^7.32.0",
-    "garou": "^0.1.40",
-    "prettier": "^2.3.2"
+    "garou": "^0.2.4",
+    "prettier": "^2.4.1"
   },
   "peerDependencies": {
-    "postcss": "^8.3.6"
+    "postcss": "^8.3.11"
   },
   "engines": {
-    "node": "^12.22.0 || ^14.17.0"
+    "node": "^12.22.0 || ^14.17.0 || >=16.13.0"
   },
   "publishConfig": {
     "access": "public",
