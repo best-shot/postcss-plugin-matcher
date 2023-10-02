@@ -10,7 +10,7 @@ For safer and faster.
 
 [npm-url]: https://www.npmjs.com/package/postcss-plugin-matcher
 [npm-badge]: https://img.shields.io/npm/v/postcss-plugin-matcher.svg?style=flat-square&logo=npm
-[github-url]: https://github.com/Airkro/postcss-plugin-matcher
+[github-url]: https://github.com/best-shot/postcss-plugin-matcher
 [github-badge]: https://img.shields.io/npm/l/postcss-plugin-matcher.svg?style=flat-square&colorB=blue&logo=github
 [node-badge]: https://img.shields.io/node/v/postcss-plugin-matcher.svg?style=flat-square&colorB=green&logo=node.js
 
