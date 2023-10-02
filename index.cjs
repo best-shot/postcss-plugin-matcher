@@ -1,20 +1,26 @@
 'use strict';
 
-const anymatch = require('anymatch');
-const { join } = require('path');
+const picomatch = require('picomatch');
+const { join } = require('node:path');
 const postcss = require('postcss');
 const slash = require('slash');
 
+function createMatch(patterns) {
+  return (file) =>
+    picomatch(
+      patterns.map((item) => slash(join(process.cwd(), item))),
+      { dot: true, format: slash },
+    )(slash(file));
+}
+
 function matcher({ plugins = [], include = [], exclude = [] } = {}) {
-  const includes = include.map((item) =>
-    typeof item === 'string' ? slash(join(process.cwd(), item)) : item,
-  );
-  const excludes = exclude.map((item) =>
-    typeof item === 'string' ? slash(join(process.cwd(), item)) : item,
-  );
+  const includes = createMatch(include);
+  const excludes = createMatch(exclude);
+
   const processer = postcss(
     plugins.map((item) => (typeof item === 'string' ? require(item) : item)),
   );
+
   return (
     root,
     {
@@ -28,8 +34,9 @@ function matcher({ plugins = [], include = [], exclude = [] } = {}) {
   ) => {
     const match =
       file &&
-      (includes.length > 0 ? anymatch(includes, file) : true) &&
-      (excludes.length > 0 ? !anymatch(excludes, file) : true);
+      (includes.length > 0 ? includes(file) : true) &&
+      (excludes.length > 0 ? !excludes(file) : true);
+
     return match ? processer.process(root, opts) : {};
   };
 }
