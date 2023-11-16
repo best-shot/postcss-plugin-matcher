@@ -1,16 +1,17 @@
 'use strict';
 
 const picomatch = require('picomatch');
-const { join } = require('node:path');
 const postcss = require('postcss');
 const slash = require('slash');
 
 function createMatch(patterns) {
-  return (file) =>
-    picomatch(
-      patterns.map((item) => slash(join(process.cwd(), item))),
-      { dot: true, format: slash },
-    )(slash(file));
+  return patterns.length > 0
+    ? (file) => {
+        const globs = patterns.map((item) => slash(item));
+
+        return picomatch(globs, { dot: true, format: slash })(slash(file));
+      }
+    : undefined;
 }
 
 function matcher({ plugins = [], include = [], exclude = [] } = {}) {
@@ -34,8 +35,8 @@ function matcher({ plugins = [], include = [], exclude = [] } = {}) {
   ) => {
     const match =
       file &&
-      (includes.length > 0 ? includes(file) : true) &&
-      (excludes.length > 0 ? !excludes(file) : true);
+      (includes ? includes(file) : true) &&
+      (excludes ? !excludes(file) : true);
 
     return match ? processer.process(root, opts) : {};
   };
